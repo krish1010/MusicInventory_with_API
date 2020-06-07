@@ -1,0 +1,59 @@
+﻿@model MusicInventory.Models.MusicList
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2>CheckOut</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Name(Quantity)
+        </th>
+        <th>
+            Artist
+        </th>
+        <th>
+            Genre
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.musicList)
+    {
+
+
+
+        <tr>
+            <td>
+                <img src=~/@item.ImageUrl width="100" height="100" alt="Image not Available" />
+                @Html.DisplayFor(modelItem => item.Name)
+                (@item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteFromCart", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<div style="font-size:20px">
+    <strong><b>Grand Total = @MusicInventory.Controllers.Repository.grand_total</b></strong>
+</div>
+<div style="font-size:22px">
+    <strong><b>@Html.ActionLink("Start Shopping Again!", "DeleteAll")</b></strong>
+</div>
+

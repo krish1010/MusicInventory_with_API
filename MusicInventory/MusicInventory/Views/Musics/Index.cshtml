@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MusicInventory.Models.Music>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    img{
+        border-radius:50%;
+    }
+</style>
+<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-8">
+        <centre><img src="~/Content/Images/les.jpg" width="1200" height="600" alt="Image Not Found" /></centre>
+    </div>
+</div>
+
+<div>
+<div>
+    <br /><br /><br />
+<div class="row">
+        <div class="row" style="font-size:18px">
+            Fresh Out of the Box!!!
+        </div>
+        @{
+            foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                            <div class-="well">
+                                <img src=~/@item.ImageUrl width="100" height="100" />
+                            </div>
+                
+                <div>
+                    <b>@Html.ActionLink(item.Name, "Details", new { id = item.Id })</b> 
+                </div>
+                </div>
+                
+            }
+        }
+
+    </div>
+    </div>
+</div>
+

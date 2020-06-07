@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Krish's Music Store</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body style="background-color:#A3A6BA">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Krish's Music Store", "Index", "Index", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                   
+                    @*<li>@Html.ActionLink("Cart("+MusicInventory.Controllers.Repository.cartList.Count()+")", "ShowCart", "Musics")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="background-color:darkgrey">
+                @{
+                    Html.RenderAction("DisplayAllGenres", "Musics");
+                }
+            </div>
+        <div class="col-lg-10" id="res3">
+            @RenderBody()
+        </div>
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Krish's Music Inventory</p>
+            </footer>
+        </div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

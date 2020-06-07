@@ -1,0 +1,61 @@
+﻿@model MusicInventory.Models.MyCart
+<br />
+<br />
+@Html.ActionLink("Continue Shopping", "Index", "Albums", null, null)
+
+<br /><br />
+@if (Model.CartItems.Count != 0)
+{
+    <h4><i><u>Review your Cart:</u></i></h4>
+    <br />
+    <h1 class="btn btn-success">Checkout >></h1>
+    <br /><br />
+    <table class="table table-bordered table-hover table-responsive" style="background-image: url('../../Content/Images/Music3.jpg');">
+        <tr style="color:darkblue;">
+            <th><h3><b>Title</b></h3></th>
+            <th><h3><b>Price</b></h3></th>
+            <th><h3><b>Quantity</b></h3></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr style="color:darkblue">
+                <td>
+                    <h3><b>@Html.DisplayFor(modelItem => item.Name)</b></h3>
+                </td>
+                <td>
+                    <h3><b>@Html.DisplayFor(modelItem => item.Price)</b></h3>
+                </td>
+                <td>
+                    <h3><b>@Html.DisplayFor(modelItem => item.Quantity)</b></h3>
+                </td>
+                <td>
+                    <h3><b>@Html.DisplayFor(modelItem => item.LineTotal)</b></h3>
+                </td>
+                <td>
+
+                    <h3>
+                        <b>
+                            @Html.ActionLink("Remove From Cart", "Delete",
+                       new { id = item.AlbumId }, new { @class = "b" })
+                    </b>
+                </h3>
+            </td>
+        </tr>
+    }
+        <tr style="color:darkblue">
+            <td>
+                <h3><b>Total :</b></h3>
+            </td>
+            <td></td>
+            <td></td>
+            <td><h3><b>@Model.Total</b></h3></td>
+        </tr>
+
+    </table>
+}
+else
+{
+    <h1>Cart is Empty!</h1>
+}

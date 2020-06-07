@@ -1,0 +1,58 @@
+﻿@model MusicInventory.Models.Music
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+<div class="col-md-6">
+    <h4>Music</h4>
+    <hr />
+    <img src=~/@Model.ImageUrl width="100" height="100" alt="Image Not Available"/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+    </div>
+<p>
+    <div style="font-size:18px">
+        @Html.ActionLink("Add to Cart", "AddToCart", new { id = Model.Id })
+        @Html.ActionLink("Back to List", "Index")
+    </div> 
+   
+    
+</p>

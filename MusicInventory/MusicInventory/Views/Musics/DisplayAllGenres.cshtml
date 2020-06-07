@@ -1,0 +1,21 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "DisplayGenre";
+}
+
+<h2>Available Genres</h2>
+    <div class="col-md-1">
+        <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="font-size:28px">
+                    @Html.ActionLink(item, "Index", new { id = item })
+                </td>
+
+            </tr>
+        }
+            </table>
+    </div>
+
